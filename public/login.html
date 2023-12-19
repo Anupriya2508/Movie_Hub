@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="./movie/favicon.ico" rel="icon" type="image/x-icon">
+  <style>
+    body {
+      background: url('./movie/sign.jpg');
+      height: 400px;
+      width: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .login {
+      margin: auto;
+      width: 25%;
+      padding: 10px;
+      margin-top: 10%;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      margin-left: 38%;
+    }
+
+    .lbl {
+      display: block;
+      padding-top: 10px;
+    }
+
+    label {
+      color: rgb(0, 0, 0);
+    }
+
+    .lbl-head {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="d-flex justify-content-center login">
+    <form id="login-form">
+      <div class="lbl-head">
+        <label>Login</label>
+      </div>
+
+      <label class="lbl" for="username">Username: </label>
+      <input type="text" id="username" name="username" class="sty" size="25" required>
+
+      <label class="lbl" for="password">Password: </label>
+      <input type="password" class="sty sty1" id="password" size="25" name="password" required>
+
+      <label class="lbl"></label>
+
+      <div class="lbl-head">
+        <button type="button" class="btn btn-primary" onclick="login()">Log in</button>
+      </div><br>
+      <p>Don't have an account? <a href="sign-up.html">Sign up</a></p>
+
+      <!-- Result message display -->
+      <div id="result"></div>
+    </form>
+  </div>
+
+  <!-- Add this script block to your login.html file -->
+  <script>
+    // login.js
+    function login() {
+      console.log('Login function called');
+
+      // Get values from the form
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Prepare data for the fetch request
+      const data = {
+        identifier: username,
+        password: password,
+      };
+
+      // Make a POST request to the backend login endpoint
+      fetch('http://localhost:3000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Response from server:', data);
+
+          // Display the result message
+          const resultElement = document.getElementById('result');
+          resultElement.textContent = data.message;
+
+          // Check if login was successful
+          if (data.message === 'Login successful') {
+            console.log('Login successful. Redirecting to index.html');
+
+            // Save the username to localStorage
+            localStorage.setItem('username', username);
+
+            // Redirect to index.html
+            window.location.href = 'index.html';
+          }
+        })
+        .catch(error => {
+          console.error('Error during login:', error);
+          // Display an error message
+          const resultElement = document.getElementById('result');
+          resultElement.textContent = 'Error during login. Please try again.';
+        });
+    }
+  </script>
+
+</body>
+
+</html>

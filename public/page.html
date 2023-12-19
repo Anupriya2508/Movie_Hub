@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="main">
+    <div class="show" style="display: block;">
+      Hi
+    </div>
+    <div class="hide" >
+      Helo
+    </div>
+    <button onclick="handleclick()">click</button>
+  </div>
+  
+  <script>
+    function handleclick() {
+      console.log("hi");
+      const myDiv = document.getElementsByClassName("show");
+      myDiv.style.display = "none";  
+     }
+  </script>
+  </body>
+  </html>

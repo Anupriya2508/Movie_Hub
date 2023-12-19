@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Movies</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="./movie/favicon.ico" rel="icon" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="body1">
+  <div class="mainimg1">
+    <div class="left-dis">
+      <a href="#home"><span>
+        </span>Movie Hub</a>
+    </div>
+  
+    <div id="arrow-left" class="arrow"></div>
+    <div class="slide slide1"></div>
+    <div class="slide slide2"></div>
+    <div class="slide slide3"></div>
+    <div id="arrow-right" class="arrow"></div>
+  </div>
+
+  <!-- <div class="bg-img">
+    <div class="topnav" id="landing">
+      <a href="new_movie.html" class="newbt">NEW MOVIES</a>
+      <a href="popular.html">Popular</a>
+      <a href="login.html">Login</a>
+      <a href="sign-up.html">Sign-Up</a>
+    </div>
+  </div> -->
+  
+  <div class="container">
+    <div class="row" id="movieCardsContainer">
+      <!-- Movie cards will be generated here dynamically -->
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container1">
+      <div class="row">
+        <div class="footer-col">
+          <h4>Movie Hub</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="new_movie.html">New Movies</a></li>
+            <li><a href="popular.html">Popular</a></li>
+            <!-- <li><a href="login.html">Login</a></li>
+              <li><a href="sign-up.html">Sign-Up</a></li> -->
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Genres</h4>
+          <ul>
+            <li><a href="#">Drama</a></li>
+            <li><a href="#">Horror</a></li>
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Science fiction</a></li>
+            <li><a href="#">Comedy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>TV Series</h4>
+          <ul>
+            <li><a href="#">Most watched</a></li>
+            <li><a href="#">Recent</a></li>
+            <li><a href="#">Classic</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fa fa-facebook-f"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    //Define an array of movie objects.....
+    const new_movies = [
+      {
+        title: "Jawan",
+        releaseYear: 2023,
+        genre: ["Action", "Thriller"],
+        overview: "A high-octane action thriller which outlines the emotional journey of a man who is set to rectify the wrongs in the society.",
+        imageSrc: "movie/new/jawan.jpeg"
+      },
+      {
+        title: "Blue Beetle",
+        releaseYear: 2023,
+        genre: ["Action", "Adventure", "Sci-Fi"],
+        overview: "An alien scarab chooses Jaime Reyes to be its symbiotic host, bestowing the recent college graduate with a suit of armor that's capable of extraordinary powers, forever changing his destiny as he becomes the superhero known as Blue Beetle.",
+        imageSrc: "movie/new/blue.jpeg"
+      },
+      {
+        title: "Ballerina",
+        releaseYear: 2023,
+        genre: ["Action", "Thriller"],
+        overview: "Grieving the loss of a best friend she couldn't protect, an ex-bodyguard sets out to fulfill her dear friend's last wish: sweet revenge.",
+        imageSrc: "movie/new/bale.jpeg"
+      },
+      {
+        title: "Kushi",
+        releaseYear: 2023,
+        genre: ["Comedy", "Drama", "Romance"],
+        overview: "Raised in an atheist household, a young man falls in love with the daughter of his father's arch-rival, a devout Hindu leader.",
+        imageSrc: "movie/new/kushi.jpeg"
+      },
+      {
+        title: "Dada",
+        releaseYear: 2023,
+        genre: ["Drama", "Family", "Romance"],
+        overview: "A couple in love, accidentally become teenage parents. Unpleasant situations make them fall apart. Manikandan, left alone with his son, struggles as a single teenage father.Fate owns him, bringing Sindhu back into his life.",
+        imageSrc: "movie/new/dada.jpeg"
+      },
+      {
+        title: "Born to fly",
+        releaseYear: 2023,
+        genre: ["Action", "Drama"],
+        overview: "A special operations team headed by elite pilots are ordered to test new fighter jets. Test flight after test flight, they challenge the limits of the sky and themselves.",
+        imageSrc: "movie/new/born.jpeg"
+      },
+      {
+        title: "Asteroid City",
+        releaseYear: 2023,
+        genre: ["Drama", "Comedy", "Romance"],
+        overview: "A woman's life is turned upside-down when a dangerous man gets hold of her lost cell phone and uses it to track her every move.",
+        imageSrc: "movie/new/ciyt.jpeg"
+      },
+      {
+        title: "Heart of Stone",
+        releaseYear: 2023,
+        genre: ["Action", "Crime", "Thriller"],
+        overview: "An intelligence operative for a shadowy global peacekeeping agency races to stop a hacker from stealing its most valuable and dangerous weapon.",
+        imageSrc: "movie/new/heart.jpeg"
+      },
+    ];
+
+    const movieCardsContainer = document.getElementById("movieCardsContainer");
+
+      //no of cards in easc row is 4.....
+      const columnsPerRow = 4;
+
+      //Generate movie cards dynamically
+      for (let i = 0; i < new_movies.length; i++) {
+        // Create a new row for every 'columnsPerRow' movies
+        if (i % columnsPerRow === 0) {
+          var newRow = document.createElement("div");
+          newRow.className = "row";
+          movieCardsContainer.appendChild(newRow);
+        }
+
+        const movie = new_movies[i];
+
+        const movieCard = document.createElement("div");
+        movieCard.className = "col-md-3";
+        movieCard.innerHTML = `
+      <div class="movie-card">
+        <img src="${movie.imageSrc}" alt="${movie.title}">
+        <div class="temp">
+          <h2>${movie.title}</h2>
+          <p>Released: ${movie.releaseYear} <span class="genere">${movie.genre.join(',')}</span></p></p>
+        </div>
+        <div class="movie-details">
+          <h4>Overview</h4>
+          <p>${movie.overview}</p>
+        </div>
+      </div>
+    `;
+
+        // Add the movie card to the current row
+        newRow.appendChild(movieCard);
+      }
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>

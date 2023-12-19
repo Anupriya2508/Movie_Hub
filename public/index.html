@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Application</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="./movie/favicon.ico" rel="icon" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="body1">
+  <div class="bg-img">
+
+    <div class="topnav" id="landing">
+
+      <div id="user-buttons">
+         
+      </div>
+    </div>
+      
+  </div>
+    
+<div class="allbut">
+  <a class="atag" id="all-button" onclick="searchMoviesG('All')">All</a>
+  <a class="atag" id="action-button" onclick="searchMoviesG('Action')">Action</a>
+  <a class="atag" id="comedy-button" onclick="searchMoviesG('Comedy')">Comedy</a>
+  <a class="atag" id="fantasy-button" onclick="searchMoviesG('Fantasy')">Fantasy</a>
+  <a class="atag" id="horror-button" onclick="searchMoviesG('Horror')">Horror</a>
+  <a class="atag" id="adventure-button" onclick="searchMoviesG('Adventure')">Adventure</a>
+</div>
+  <div class="container">
+    <div class="head">
+      <h3>Top picks for you !</h3>
+    </div>
+    <div class="row" id="movieCardsContainer">
+      <!-- Movie cards will be generated here dynamically -->
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container1">
+      <div class="row">
+        <div class="footer-col">
+          <h4>Movie Hub</h4>
+          <ul id="movie_hub">
+            <li><a href="login.html">Home</a></li>
+            <li><a  id="foot_new" href="login.html">New Movies</a></li>
+            <li><a href="login.html">Popular</a></li>
+            <!-- <li><a href="login.html">Login</a></li>
+              <li><a href="sign-up.html">Sign-Up</a></li> -->
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Genres</h4>
+          <ul>
+            <li><a href="#">Drama</a></li>
+            <li><a href="#">Horror</a></li>
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Science fiction</a></li>
+            <li><a href="#">Comedy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>TV Series</h4>
+          <ul>
+            <li><a href="#">Most watched</a></li>
+            <li><a href="#">Recent</a></li>
+            <li><a href="#">Classic</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fa fa-facebook-f"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="index.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
