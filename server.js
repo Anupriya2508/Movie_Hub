@@ -11,13 +11,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
 // MongoDB connection string
-const MONGODB_QRI = 'mongodb+srv://anupriyajayaraj08:anu2002p@moviehub.ebrtnz6.mongodb.net/?retryWrites=true&w=majority';
+const MONGODB_QRI = 'mongodb+srv://anupriyajayaraj08:anu2002p@moviehub.ebrtnz6.mongodb.net/?retryWrites=true&w=majority'; 
 
 // Connect to MongoDB using the MONGODB_QRI variable
-mongoose.connect(MONGODB_QRI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(MONGODB_QRI);
 
 mongoose.connection.on('error', (err) => console.error('MongoDB connection error:', err));
 mongoose.connection.once('open', () => console.log('Connected to MongoDB'));
