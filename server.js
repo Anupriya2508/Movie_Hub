@@ -10,8 +10,11 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
-// Connect to MongoDB
-mongoose.connect('mongodb+srv://anupriyajayaraj08:anu2002p@moviehub.ebrtnz6.mongodb.net/?retryWrites=true&w=majority', {
+// MongoDB connection string
+const MONGODB_QRI = 'mongodb+srv://anupriyajayaraj08:anu2002p@moviehub.ebrtnz6.mongodb.net/?retryWrites=true&w=majority';
+
+// Connect to MongoDB using the MONGODB_QRI variable
+mongoose.connect(MONGODB_QRI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
