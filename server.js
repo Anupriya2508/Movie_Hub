@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,9 +10,11 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
+app.use(cors());
 
 // MongoDB connection string
 const MONGODB_QRI = 'mongodb+srv://anupriyajayaraj08:anu2002p@moviehub.ebrtnz6.mongodb.net/?retryWrites=true&w=majority'; 
+
 
 // Connect to MongoDB using the MONGODB_QRI variable
 mongoose.connect(MONGODB_QRI);
