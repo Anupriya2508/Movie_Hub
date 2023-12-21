@@ -44,7 +44,7 @@ Before you begin, ensure you have the following installed:
 ### Installation
 
 1. Clone the repository:
-   git clone https://github.com/your-username/movie-hub.git
+   git clone https://github.com/Anupriya2508/movie-hub.git
 
 2. Change into the project directory:
    cd movie-hub
