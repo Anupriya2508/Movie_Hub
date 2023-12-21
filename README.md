@@ -21,7 +21,7 @@ Welcome to Movie Hub! This is a web application that allows users to explore and
 
 ## Demo
 
-Check out our live demo (#) (https://movie-hub-frontend.onrender.com/).
+Check out our live demo https://movie-hub-frontend.onrender.com/
 
 ## Screenshots
 ![1 Landing page](https://github.com/Anupriya2508/Movie_Hub/assets/89139657/dbeecae9-dd72-4684-941d-3c725958ceaa)
