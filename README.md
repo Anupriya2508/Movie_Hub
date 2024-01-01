@@ -44,10 +44,14 @@ Before you begin, ensure you have the following installed:
 ### Installation
 
 1. Clone the repository:
-   git clone https://github.com/Anupriya2508/movie-hub.git
+   ```bash
+    git clone https://github.com/Anupriya2508/Movie_Hub.git
+    ```
 
 2. Change into the project directory:
-   cd movie-hub
+    ```bash
+    cd Movie_Hub
+    ```
    
 4. Install dependencies:
    npm install
